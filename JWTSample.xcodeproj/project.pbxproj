@@ -11,10 +11,6 @@
 		AD41E83B28EE53480035FED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41E83A28EE53480035FED7 /* SceneDelegate.swift */; };
 		AD41E83D28EE53480035FED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41E83C28EE53480035FED7 /* ViewController.swift */; };
 		AD41E84228EE534B0035FED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD41E84128EE534B0035FED7 /* Assets.xcassets */; };
-		AD41E84528EE534B0035FED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD41E84328EE534B0035FED7 /* LaunchScreen.storyboard */; };
-		AD41E85028EE534C0035FED7 /* JWTSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41E84F28EE534C0035FED7 /* JWTSampleTests.swift */; };
-		AD41E85A28EE534C0035FED7 /* JWTSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41E85928EE534C0035FED7 /* JWTSampleUITests.swift */; };
-		AD41E85C28EE534C0035FED7 /* JWTSampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41E85B28EE534C0035FED7 /* JWTSampleUITestsLaunchTests.swift */; };
 		AD41E86928EE53D10035FED7 /* JWTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41E86828EE53D10035FED7 /* JWTManager.swift */; };
 		AD41E86C28EE5CC60035FED7 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AD41E86B28EE5CC60035FED7 /* CryptoSwift */; };
 		AD41E86F28EE7C7B0035FED7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AD41E86E28EE7C7B0035FED7 /* SnapKit */; };
@@ -44,13 +40,9 @@
 		AD41E83A28EE53480035FED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AD41E83C28EE53480035FED7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD41E84128EE534B0035FED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD41E84428EE534B0035FED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD41E84628EE534B0035FED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD41E84B28EE534C0035FED7 /* JWTSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JWTSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD41E84F28EE534C0035FED7 /* JWTSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTSampleTests.swift; sourceTree = "<group>"; };
 		AD41E85528EE534C0035FED7 /* JWTSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JWTSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD41E85928EE534C0035FED7 /* JWTSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTSampleUITests.swift; sourceTree = "<group>"; };
-		AD41E85B28EE534C0035FED7 /* JWTSampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTSampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AD41E86828EE53D10035FED7 /* JWTManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,12 +74,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD3AEA5828EFB0E30065D69F /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				AD41E83828EE53480035FED7 /* AppDelegate.swift */,
+				AD41E83A28EE53480035FED7 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		AD3AEA5928EFB0EC0065D69F /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AD41E83C28EE53480035FED7 /* ViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		AD3AEA5A28EFB0F70065D69F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				AD41E86828EE53D10035FED7 /* JWTManager.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		AD41E82C28EE53480035FED7 = {
 			isa = PBXGroup;
 			children = (
 				AD41E83728EE53480035FED7 /* JWTSample */,
-				AD41E84E28EE534C0035FED7 /* JWTSampleTests */,
-				AD41E85828EE534C0035FED7 /* JWTSampleUITests */,
 				AD41E83628EE53480035FED7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,32 +120,13 @@
 		AD41E83728EE53480035FED7 /* JWTSample */ = {
 			isa = PBXGroup;
 			children = (
-				AD41E83828EE53480035FED7 /* AppDelegate.swift */,
-				AD41E83A28EE53480035FED7 /* SceneDelegate.swift */,
-				AD41E83C28EE53480035FED7 /* ViewController.swift */,
+				AD3AEA5828EFB0E30065D69F /* Delegate */,
+				AD3AEA5928EFB0EC0065D69F /* Scene */,
+				AD3AEA5A28EFB0F70065D69F /* Tools */,
 				AD41E84128EE534B0035FED7 /* Assets.xcassets */,
-				AD41E84328EE534B0035FED7 /* LaunchScreen.storyboard */,
 				AD41E84628EE534B0035FED7 /* Info.plist */,
-				AD41E86828EE53D10035FED7 /* JWTManager.swift */,
 			);
 			path = JWTSample;
-			sourceTree = "<group>";
-		};
-		AD41E84E28EE534C0035FED7 /* JWTSampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				AD41E84F28EE534C0035FED7 /* JWTSampleTests.swift */,
-			);
-			path = JWTSampleTests;
-			sourceTree = "<group>";
-		};
-		AD41E85828EE534C0035FED7 /* JWTSampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AD41E85928EE534C0035FED7 /* JWTSampleUITests.swift */,
-				AD41E85B28EE534C0035FED7 /* JWTSampleUITestsLaunchTests.swift */,
-			);
-			path = JWTSampleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +223,8 @@
 			);
 			mainGroup = AD41E82C28EE53480035FED7;
 			packageReferences = (
-				AD41E86A28EE5CC60035FED7 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */,
-				AD41E86D28EE7C7B0035FED7 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				AD41E86A28EE5CC60035FED7 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				AD41E86D28EE7C7B0035FED7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				AD41E87028EE8D490035FED7 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
 			);
 			productRefGroup = AD41E83628EE53480035FED7 /* Products */;
@@ -247,7 +243,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD41E84528EE534B0035FED7 /* LaunchScreen.storyboard in Resources */,
 				AD41E84228EE534B0035FED7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD41E85028EE534C0035FED7 /* JWTSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD41E85C28EE534C0035FED7 /* JWTSampleUITestsLaunchTests.swift in Sources */,
-				AD41E85A28EE534C0035FED7 /* JWTSampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,17 +303,6 @@
 			targetProxy = AD41E85628EE534C0035FED7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		AD41E84328EE534B0035FED7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD41E84428EE534B0035FED7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AD41E85D28EE534C0035FED7 /* Debug */ = {
@@ -614,7 +595,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AD41E86A28EE5CC60035FED7 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */ = {
+		AD41E86A28EE5CC60035FED7 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
@@ -622,7 +603,7 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		AD41E86D28EE7C7B0035FED7 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		AD41E86D28EE7C7B0035FED7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -643,12 +624,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		AD41E86B28EE5CC60035FED7 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AD41E86A28EE5CC60035FED7 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */;
+			package = AD41E86A28EE5CC60035FED7 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
 		AD41E86E28EE7C7B0035FED7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AD41E86D28EE7C7B0035FED7 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = AD41E86D28EE7C7B0035FED7 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		AD41E87128EE8D490035FED7 /* SwiftJWT */ = {
