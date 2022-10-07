@@ -10,6 +10,24 @@ import SnapKit
 
 
 class ViewController: UIViewController {
+    private lazy var tokenLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18.0, weight: .bold)
+        label.textColor = .label
+        label.numberOfLines = 0
+        
+        return label
+    }()
+    
+    private lazy var copyButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Copy", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.setTitleColor(.label.withAlphaComponent(0.3), for: .highlighted)
+        
+        button.addTarget(self, action: #selector(didTapCopyButton), for: .touchUpInside)
+        return button
+    }()
     
     private lazy var tokenButton: UIButton = {
         let button = UIButton()
@@ -30,30 +48,73 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        
-        JWTGenerator.generateJWT()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 }
 
 private extension ViewController {
     func setupViews() {
         [
+            tokenLabel,
+            copyButton,
             tokenButton
         ]
             .forEach {
                 view.addSubview($0)
             }
         
-        tokenButton.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.width.equalTo(150.0)
+        let offset: CGFloat = 16.0
+        tokenLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(offset)
+            $0.leading.equalToSuperview().offset(offset)
+            $0.trailing.equalToSuperview().offset(-offset)
+            
+        }
+        
+        copyButton.snp.makeConstraints {
+            $0.top.equalTo(tokenLabel.snp.bottom).offset(offset)
+            $0.leading.equalToSuperview().offset(offset)
+            $0.trailing.equalToSuperview().offset(-offset)
             $0.height.equalTo(50.0)
+        }
+        
+        tokenButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(50.0)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-offset)
+            $0.leading.equalToSuperview().offset(offset)
+            $0.trailing.equalToSuperview().offset(-offset)
+            
         }
     }
     
     @objc
     func didTapGenerateButtonAction() {
-        JWTGenerator.generateJWT()
+        let token = JWTGenerator.generateJWT()
+        tokenLabel.text = token
+    }
+    
+    @objc
+    func didTapCopyButton() {
+        guard let token = tokenLabel.text else {
+            let alert = UIAlertController(title: "빈 텍스트", message: "토큰 생성 후 사용해 주세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        if token == "" {
+            let alert = UIAlertController(title: "빈 텍스트", message: "토큰 생성 후 사용해 주세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
+        } else {
+            UIPasteboard.general.string = token
+        }
     }
 }
 
