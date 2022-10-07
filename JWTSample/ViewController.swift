@@ -107,8 +107,23 @@ private extension ViewController {
     func didTapGenerateButtonAction() {
         let token = JWTGenerator.generateJWT()
         tokenLabel.text = token
-        
         copyButton.isHidden = false
+        
+        tokenLabel.alpha = 0
+        copyButton.alpha = 0
+        
+        UIView.animate(
+            withDuration: 1.0,
+            delay: 0.0,
+            usingSpringWithDamping: 1.0,
+            initialSpringVelocity: 1.0,
+            options: .curveEaseInOut,
+            animations: {
+                self.tokenLabel.alpha = 1
+                self.copyButton.alpha = 1
+            },
+            completion: nil
+        )
     }
     
     @objc
