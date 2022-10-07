@@ -14,7 +14,13 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18.0, weight: .bold)
         label.textColor = .label
+        
+        label.layer.borderWidth = 1.0
+        label.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+        label.layer.cornerRadius = 8.0
+        
         label.numberOfLines = 0
+        label.text = ""
         
         return label
     }()
@@ -24,6 +30,12 @@ class ViewController: UIViewController {
         button.setTitle("Copy", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.setTitleColor(.label.withAlphaComponent(0.3), for: .highlighted)
+        
+        button.layer.cornerRadius = 4.0
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
+        
+        button.isHidden = true
         
         button.addTarget(self, action: #selector(didTapCopyButton), for: .touchUpInside)
         return button
@@ -95,6 +107,8 @@ private extension ViewController {
     func didTapGenerateButtonAction() {
         let token = JWTGenerator.generateJWT()
         tokenLabel.text = token
+        
+        copyButton.isHidden = false
     }
     
     @objc
@@ -114,6 +128,32 @@ private extension ViewController {
             present(alert, animated: true, completion: nil)
         } else {
             UIPasteboard.general.string = token
+            
+            let imageView = UIImageView()
+            imageView.image = UIImage(systemName: "checkmark")
+            imageView.tintColor = .green
+            
+            view.addSubview(imageView)
+            
+            imageView.snp.makeConstraints {
+                $0.center.equalToSuperview()
+                $0.height.width.equalTo(50.0)
+            }
+            
+            UIView.animate(
+                withDuration: 3.0,
+                delay: 0.0,
+                usingSpringWithDamping: 1.0,
+                initialSpringVelocity: 1.0,
+                options: .curveEaseInOut,
+                animations: {
+                    imageView.alpha = 0
+                },
+                completion: { _ in
+                    imageView.removeFromSuperview()
+                }
+            )
+            
         }
     }
 }
